@@ -1,16 +1,8 @@
 module.exports = {
   root: true,
   env: { browser: true, es2020: true },
-  extends: [
-    'eslint:recommended',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:react-hooks/recommended',
-    'airbnb',
-    'airbnb-typescript',
-    'airbnb/hooks',
-    'prettier'
-  ],
-  ignorePatterns: ['dist', '.eslintrc.cjs', 'vite.config.ts'],
+  extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended', 'plugin:react-hooks/recommended', 'airbnb', 'airbnb-typescript', 'airbnb/hooks', 'prettier', 'plugin:storybook/recommended'],
+  ignorePatterns: ['dist', '.eslintrc.cjs', 'vite.config.ts', 'storybook-static'],
   parser: '@typescript-eslint/parser',
   plugins: ['react', '@typescript-eslint', 'react-hooks', 'prettier'],
   settings: {
@@ -18,6 +10,15 @@ module.exports = {
       '@typescript-eslint/parser': ['.ts', '.tsx']
     }
   },
+  overrides: [
+    {
+      files: ['**/*.stories.ts', '**/*.stories.tsx'],
+      rules: {
+        'import/no-extraneous-dependencies': 0,
+        'react/no-props-spreading': 0
+      }
+    }
+  ],
   parserOptions: {
     ecmaVersion: 'latest',
     project: './tsconfig.json',
@@ -26,6 +27,8 @@ module.exports = {
   rules: {
     'import/prefer-default-export': 0,
     'react/react-in-jsx-scope': 0,
+    'react/require-default-props': 0,
+    'react/function-component-definition': 0,
     'prettier/prettier': [
       'warn',
       {
