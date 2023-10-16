@@ -1,16 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { CssBaseline, ThemeProvider } from '@mui/material';
 import App from './App';
 import './index.css';
-
-import theme from './theme';
+import { DogAppThemeProvider } from './theme';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <CssBaseline />
-    <ThemeProvider theme={theme}>
+    <DogAppThemeProvider>
       <App />
-    </ThemeProvider>
+    </DogAppThemeProvider>
   </React.StrictMode>
 );

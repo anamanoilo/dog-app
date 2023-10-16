@@ -17,7 +17,9 @@ function App() {
       </div>
       <h1>1Vite + React</h1>
       <div className="card">
-        <Button onClick={() => setCount(c => c + 1)}>count is {count}</Button>
+        <Button onClick={() => setCount(c => c + 1)} disableRipple>
+          count is {count}
+        </Button>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
