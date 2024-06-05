@@ -1,46 +1,74 @@
-import { Components, Theme, alpha } from '@mui/material';
+import { Components, Theme } from '@mui/material';
 
 export const MuiButtonConfig: Components<Theme>['MuiButton'] = {
   styleOverrides: {
     root: ({ theme }) => ({
-      borderRadius: 20,
+      borderRadius: 0,
       boxShadow: 'none',
       textTransform: 'none',
-      fontSize: 20,
-      lineHeight: 1.6,
-      padding: theme.spacing(1, 2),
+      fontSize: 14,
+      lineHeight: 1.7,
+      padding: theme.spacing(2.25, 7.5),
       '&:hover, &:active': {
         boxShadow: 'none'
       }
     }),
-    containedPrimary: ({ theme: { palette } }) => ({
-      backgroundColor: palette.primary.main,
-      color: palette.primary.contrastText,
-      '&:hover': {
-        backgroundColor: palette.action.hover
+    text: ({ theme }) => ({
+      position: 'relative',
+      padding: 0,
+      lineHeight: 1.7,
+      overflow: 'hidden',
+      '&::after': {
+        content: "''",
+        position: 'absolute',
+        bottom: 0,
+        left: 0,
+        width: '100%',
+        height: '2px',
+        bgcolor: theme.palette.secondary.contrastText,
+        transform: 'translateX(-30%)',
+        transition: 'transform 250ms ease-out'
       },
-      '&:active': {
-        backgroundColor: palette.action.selected,
-        boxShadow: `inset 0px -4px 6px ${alpha(
-          palette.common.white,
-          0.25
-        )}, inset 0px 4px 6px ${alpha(palette.common.black, 0.25)}`
+      '&:hover, &:active': {
+        bgcolor: theme.palette.secondary.main,
+        '&::after': {
+          transform: 'translateX(0)'
+        }
       }
-    }),
-    containedSecondary: ({ theme: { palette } }) => ({
-      backgroundColor: palette.secondary.main,
-      color: palette.secondary.contrastText,
-      '&:hover': {
-        backgroundColor: palette.grey[100]
-      },
-      '&:active': {
-        backgroundColor: palette.grey[300]
-      }
-    }),
-    outlinedPrimary: ({ theme: { palette } }) => ({
-      color: palette.primary.contrastText
     })
+    // sizeSmall: ({ theme }) => ({})
+    // containedPrimary: ({ theme: { palette } }) => ({
+    //   minHeight: 60,
+    //   backgroundColor: palette.primary.main,
+    //   color: palette.primary.contrastText,
+    //   '&:hover': {
+    //     backgroundColor: palette.action.hover
+    //   },
+    //   '&:active': {
+    //     backgroundColor: palette.action.selected,
+    //     boxShadow: `inset 0px -4px 6px ${alpha(
+    //       palette.common.white,
+    //       0.25
+    //     )}, inset 0px 4px 6px ${alpha(palette.common.black, 0.25)}`
+    //   }
+    // }),
+    // containedSecondary: ({ theme: { palette } }) => ({
+    //   minHeight: 60,
+    //   backgroundColor: palette.secondary.main,
+    //   color: palette.secondary.contrastText,
+    //   '&:hover': {
+    //     backgroundColor: palette.action.hover
+    //   },
+    //   '&:active': {
+    //     backgroundColor: palette.action.selected,
+    //     boxShadow: `inset 0px -4px 6px ${alpha(
+    //       palette.common.white,
+    //       0.25
+    //     )}, inset 0px 4px 6px ${alpha(palette.common.black, 0.25)}`
+    //   }
+    // }),
   },
+
   defaultProps: {
     disableRipple: true
   }

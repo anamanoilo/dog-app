@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Button } from '@mui/material';
+import Footer from './containers/Footer/Footer';
 
 import reactLogo from './assets/react.svg';
 
@@ -27,6 +28,7 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
+      <Footer />
     </>
   );
 }

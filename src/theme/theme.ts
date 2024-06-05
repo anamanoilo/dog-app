@@ -1,32 +1,36 @@
 import { createTheme } from '@mui/material/styles';
 import { MuiButtonConfig } from './button.config';
+import { MuiTextFieldConfig } from './input.config';
 
 // A custom theme for this app
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#921FED',
+      main: '#222222',
       contrastText: '#FFFFFF'
     },
     secondary: {
       main: '#FFFFFF',
-      contrastText: '#921FED'
+      contrastText: '#222222'
     },
     text: {
-      primary: '#5F556D'
-      // secondary: "#FFFFFF",
+      primary: '#222222',
+      secondary: '#FFFFFF'
     },
     grey: {
-      100: '#FBFAFC',
-      300: '#E6E6E6',
-      500: '#ADA7B8'
+      100: '#F7F7F7',
+      300: '#767676',
+      500: '#E4E4E4'
     },
     action: {
-      hover: '#A239F4',
-      selected: '#B568F2'
+      hover: '#444444',
+      selected: '#111111'
     },
     warning: {
-      main: '#FFCF32'
+      main: '#E4E4E4'
+    },
+    error: {
+      main: '#D6001C'
     },
     background: {
       paper: '#FBFAFC'
@@ -34,13 +38,24 @@ const theme = createTheme({
   },
   typography: {
     fontSize: 20,
-    fontFamily: "'Dosis', sans-serif",
+    fontFamily: "'Jost', sans-serif",
     fontWeightRegular: 400,
     fontWeightMedium: 500,
-    fontWeightBold: 600
+    // fontWeightSemiBold: 600,
+    fontWeightBold: 700
+  },
+  transitions: {
+    duration: {
+      short: 250,
+      standard: 300
+    },
+    easing: {
+      easeInOut: 'cubic-bezier(0.4, 0, 0.2, 1)'
+    }
   },
   components: {
     MuiButton: MuiButtonConfig,
+    MuiTextField: MuiTextFieldConfig,
     MuiTab: {
       defaultProps: {
         disableRipple: true
