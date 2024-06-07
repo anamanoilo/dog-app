@@ -14,10 +14,15 @@ export const MuiButtonConfig: Components<Theme>['MuiButton'] = {
       }
     }),
     text: ({ theme }) => ({
+      backgroundColor: 'transparent',
       position: 'relative',
       padding: 0,
       lineHeight: 1.7,
       overflow: 'hidden',
+      minWidth: 'auto',
+      '&:hover': {
+        backgroundColor: 'transparent'
+      },
       '&::after': {
         content: "''",
         position: 'absolute',
@@ -25,12 +30,12 @@ export const MuiButtonConfig: Components<Theme>['MuiButton'] = {
         left: 0,
         width: '100%',
         height: '2px',
-        bgcolor: theme.palette.secondary.contrastText,
+        backgroundColor: theme.palette.secondary.contrastText,
         transform: 'translateX(-30%)',
         transition: 'transform 250ms ease-out'
       },
       '&:hover, &:active': {
-        bgcolor: theme.palette.secondary.main,
+        backgroundColor: theme.palette.secondary.main,
         '&::after': {
           transform: 'translateX(0)'
         }

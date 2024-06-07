@@ -5,8 +5,7 @@ export const MuiTextFieldConfig: Components<Theme>['MuiTextField'] = {
     root: ({ theme }) => ({
       fontSize: 14,
       fontWeight: theme.typography.fontWeightRegular,
-      lineHeight: 1.7,
-      padding: theme.spacing(2.25, 2)
+      lineHeight: 1.7
     })
   }
 };
