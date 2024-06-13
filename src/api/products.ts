@@ -19,6 +19,17 @@ export const getProducts = async (): Promise<ProductItem[]> => {
   return res.json();
 };
 
+export const getProductById = async (id: string): Promise<ProductItem> => {
+  const res = await fetch(`${HOST_URL}/api/products/${id}`);
+
+  if (!res.ok) {
+    const ResponseResult = await res.json();
+    throw new Error(ResponseResult?.statusCode);
+  }
+
+  return res.json();
+};
+
 export const getCategories = async (): Promise<Category[]> => {
   const res = await fetch(`${HOST_URL}/api/categories`);
 

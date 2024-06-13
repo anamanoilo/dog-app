@@ -6,7 +6,8 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import App from './App';
 import './index.css';
 import { UomoAppThemeProvider } from './theme';
-import { HomePage, ProductItemPage } from './pages';
+import { HomePage, ProductItemPage, ShopPage } from './pages';
+import { Header } from './containers/Header';
 
 const queryClient = new QueryClient();
 
@@ -14,7 +15,12 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
-    errorElement: <div>Error 404</div>,
+    errorElement: (
+      <>
+        <Header />
+        <div>Error 404</div>
+      </>
+    ),
     children: [
       {
         errorElement: <div>Error 404</div>,
@@ -22,34 +28,18 @@ const router = createBrowserRouter([
           { index: true, element: <HomePage /> },
           {
             path: 'shop',
-            element: <div>ProductList</div>
+            element: <ShopPage />
           },
           {
             path: 'shop/:productId',
             element: <ProductItemPage />
           },
           {
-            path: 'collection',
-            element: <div>collection</div>
-          },
-          {
-            path: 'journal',
-            element: <div>journal</div>
-          },
-          {
-            path: 'lookbook',
-            element: <div>lookbook</div>
-          },
-          {
-            path: 'pages',
-            element: <div>pages</div>
-          },
-          {
             path: 'cart',
             element: <div>cart</div>
           },
           {
-            path: 'account',
+            path: 'signin',
             element: <div>login/signup</div>
           }
         ]

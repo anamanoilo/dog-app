@@ -83,7 +83,7 @@ export const Header = () => (
           ))}
         </Box>
         <Box>
-          <Link to="account">
+          <Link to="signin">
             <PersonIcon />
           </Link>
           <Link to="cart">
