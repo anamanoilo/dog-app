@@ -18,6 +18,7 @@ export const MuiButtonConfig: Components<Theme>['MuiButton'] = {
       padding: 0,
       lineHeight: 1.7,
       overflow: 'hidden',
+      minWidth: 'auto',
       '&::after': {
         content: "''",
         position: 'absolute',
@@ -30,7 +31,7 @@ export const MuiButtonConfig: Components<Theme>['MuiButton'] = {
         transition: 'transform 250ms ease-out'
       },
       '&:hover, &:active': {
-        bgcolor: theme.palette.secondary.main,
+        backgroundColor: 'transparent',
         '&::after': {
           transform: 'translateX(0)'
         }

@@ -5,27 +5,27 @@ import {
   CardMedia,
   Typography,
   IconButton,
-  Radio,
-  Box
+  Button,
+  Box,
+  CardActions
 } from '@mui/material';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import { Link } from 'react-router-dom';
-import { HOST_URL } from '../../constants';
 import notFoundImg from '../../assets/placeholder.jpeg';
 
-type ProductItemType = {
-  id?: string;
+type ProductItemProps = {
+  id: string;
   name: string;
   unitPrice: number;
   url?: string;
   // onClick?: () => void;
 };
 
-export const ProductItemCard: FC<ProductItemType> = ({
+export const ProductItemCard: FC<ProductItemProps> = ({
   id,
-  name = 'AVIATOR CLASSIC',
+  name,
   url,
-  unitPrice = 129
+  unitPrice
 }) => (
   <li>
     <Card
@@ -44,7 +44,7 @@ export const ProductItemCard: FC<ProductItemType> = ({
           <CardMedia
             component="img"
             height="200"
-            image={url && url !== `${HOST_URL}string` ? url : notFoundImg}
+            image={url || notFoundImg}
             alt={name}
           />
           <IconButton
@@ -54,41 +54,20 @@ export const ProductItemCard: FC<ProductItemType> = ({
             <FavoriteBorderIcon />
           </IconButton>
         </Box>
+
         <CardContent>
           <Typography variant="h4">{name}</Typography>
           <Typography
             variant="body2"
             color="grey.300"
           >{`$${unitPrice}`}</Typography>
-          <Box display="flex" mt={1}>
-            <Radio
-              checked
-              sx={{
-                color: '#BABABA',
-                '&.Mui-checked': {
-                  borderColor: '#222222'
-                }
-              }}
-            />
-            <Radio
-              sx={{
-                color: '#D76B67',
-                '&.Mui-checked': {
-                  borderColor: '#222222'
-                }
-              }}
-            />
-            <Radio
-              sx={{
-                color: '#BFDCC4',
-                '&.Mui-checked': {
-                  borderColor: '#222222'
-                }
-              }}
-            />
-          </Box>
         </CardContent>
       </Link>
+      <CardActions>
+        <Button variant="contained" fullWidth>
+          ADD TO CART
+        </Button>
+      </CardActions>
     </Card>
   </li>
 );

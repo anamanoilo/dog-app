@@ -6,3 +6,8 @@ export type ProductItem = {
   unitPrice: number;
   url: string;
 };
+
+export type Category = {
+  id: string;
+  name: string;
+};

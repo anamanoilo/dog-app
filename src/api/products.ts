@@ -1,5 +1,5 @@
 import { HOST_URL } from '../constants';
-import { ProductItem } from '../types';
+import { ProductItem, Category } from '../types';
 
 // export const getProducts = () => {
 //   fetch(`${HOST_URL}/api/products`).then(data => {
@@ -19,7 +19,7 @@ export const getProducts = async (): Promise<ProductItem[]> => {
   return res.json();
 };
 
-export const getCategories = async () => {
+export const getCategories = async (): Promise<Category[]> => {
   const res = await fetch(`${HOST_URL}/api/categories`);
 
   if (!res.ok) {
