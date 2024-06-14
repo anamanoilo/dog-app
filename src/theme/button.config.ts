@@ -14,6 +14,7 @@ export const MuiButtonConfig: Components<Theme>['MuiButton'] = {
       }
     }),
     text: ({ theme }) => ({
+      backgroundColor: 'transparent',
       position: 'relative',
       padding: 0,
       lineHeight: 1.7,
@@ -26,7 +27,7 @@ export const MuiButtonConfig: Components<Theme>['MuiButton'] = {
         left: 0,
         width: '100%',
         height: '2px',
-        bgcolor: theme.palette.secondary.contrastText,
+        backgroundColor: theme.palette.secondary.contrastText,
         transform: 'translateX(-30%)',
         transition: 'transform 250ms ease-out'
       },

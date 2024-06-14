@@ -9,9 +9,13 @@ export const OutlinedInput: FC<TextFieldProps> = ({ children, ...props }) =>
       sx: {
         fontSize: 14,
         fontWeight: 400,
-        lineHeight: 1.7,
-        px: 3,
-        py: 2
+        lineHeight: 1.7
+      },
+      InputProps: {
+        sx: {
+          py: 0.7,
+          px: 1.5
+        }
       }
     },
     children
