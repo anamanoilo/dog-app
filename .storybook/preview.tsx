@@ -1,13 +1,13 @@
 import type { Preview } from '@storybook/react';
 import React from 'react';
-import { DogAppThemeProvider } from '../src/theme';
+import { UomoAppThemeProvider } from '../src/theme';
 
 const preview: Preview = {
   decorators: [
     Story => (
-      <DogAppThemeProvider>
+      <UomoAppThemeProvider>
         <Story />
-      </DogAppThemeProvider>
+      </UomoAppThemeProvider>
     )
   ],
   parameters: {

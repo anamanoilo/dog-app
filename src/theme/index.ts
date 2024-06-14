@@ -1,1 +1,1 @@
-export * from './DogAppThemeProvider';
+export * from './UomoAppThemeProvider';
