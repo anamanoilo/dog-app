@@ -57,6 +57,6 @@ export const Text: Story = {
   // render: () => <TextButton>SHOW MORE</TextButton>
   args: {
     variant: 'text',
-    children: 'Button'
+    children: 'SHOW MORE'
   }
 };

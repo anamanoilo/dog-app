@@ -21,7 +21,8 @@ export const Primary: Story = {
   args: {
     variant: 'outlined',
     type: 'email',
-    children: 'TextField'
+    children: 'TextField',
+    label: 'First name'
   }
 };
 
