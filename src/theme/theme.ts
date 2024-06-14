@@ -15,7 +15,6 @@ const theme = createTheme({
     },
     text: {
       primary: '#222222'
-      // secondary: '#FFFFFF'
     },
     grey: {
       100: '#F7F7F7',
@@ -37,7 +36,6 @@ const theme = createTheme({
     }
   },
   typography: {
-    fontSize: 20,
     fontFamily: "'Jost', sans-serif",
     fontWeightRegular: 400,
     fontWeightMedium: 500,
