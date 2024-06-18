@@ -2,7 +2,7 @@ import { AppBar, Box, Button, Container, Toolbar } from '@mui/material';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import PersonIcon from '@mui/icons-material/Person';
 import { Link, NavLink } from 'react-router-dom';
-import Logo from '../../assets/logo.svg';
+import { Logo } from '../../components/Logo';
 
 const navOptions = [
   'home',
@@ -20,13 +20,11 @@ export const Header = () => (
         disableGutters
         sx={{
           display: 'flex',
+          alignItems: 'center',
           justifyContent: 'space-between'
         }}
       >
-        <Link to="/">
-          <img src={Logo} alt="Uomo Logo" width={110} />
-        </Link>
-
+        <Logo />
         <Box
           sx={{
             display: 'flex',
@@ -36,50 +34,25 @@ export const Header = () => (
           }}
         >
           {navOptions.map(page => (
-            <NavLink to={page === 'home' ? '/' : page} key={page} end>
-              {({ isActive }) => (
-                <Button
-                  variant="text"
-                  sx={
-                    isActive
-                      ? {
-                          '&::after': {
-                            content: "''",
-                            position: 'absolute',
-                            bottom: 0,
-                            left: 0,
-                            width: '100%',
-                            height: '2px',
-                            bgcolor: 'secondary.contrastText',
-                            transform: 'translateX(-60%)',
-                            transition: 'transform 250ms ease-out'
-                          }
-                        }
-                      : {
-                          '&::after': {
-                            content: "''",
-                            position: 'absolute',
-                            bottom: 0,
-                            left: 0,
-                            width: '100%',
-                            height: '2px',
-                            bgcolor: 'secondary.contrastText',
-                            transform: 'translateX(-100%)',
-                            transition: 'transform 250ms ease-out'
-                          },
-                          '&:hover, &:focus': {
-                            backgroundColor: 'transparent',
-                            '&::after': {
-                              transform: 'translateX(-60%)'
-                            }
-                          }
-                        }
+            // TODO: replace Button with Mui Link
+            <Button
+              component={NavLink}
+              to={page === 'home' ? '/' : page}
+              key={page}
+              end
+              sx={{
+                '&::after': {
+                  transform: 'translateX(-100%)'
+                },
+                '&:hover, &:focus, &.active': {
+                  '&::after': {
+                    transform: 'translateX(-40%)'
                   }
-                >
-                  {page.toUpperCase()}
-                </Button>
-              )}
-            </NavLink>
+                }
+              }}
+            >
+              {page.toUpperCase()}
+            </Button>
           ))}
         </Box>
         <Box>
